@@ -163,6 +163,7 @@ class StreamingOpen:
                 else:
                     stream = gopen.gopen(url)
                     yield dict(url=url, stream=stream)
+                    stream.close()
             except Exception as exn:
                 if self.handler(exn):
                     continue
